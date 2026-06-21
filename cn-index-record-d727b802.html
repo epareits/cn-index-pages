@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>了解 pp体育 · 信息导览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f7f3ea; /* 米白基调 */
+            color: #2c2b28;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .page-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fcfaf6;
+            border-radius: 32px;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.04);
+            padding: 2.5rem 2rem 3rem;
+        }
+
+        /* 主视觉 */
+        .hero {
+            text-align: center;
+            padding: 1.2rem 0 2.4rem;
+            border-bottom: 1px solid #e7e1d6;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #2b2a26;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #6c6862;
+            margin-top: 0.6rem;
+            max-width: 36rem;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 380;
+        }
+
+        /* 用途卡片区 */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin: 2.6rem 0 2rem;
+        }
+
+        .purpose-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            border: 1px solid #ede8df;
+        }
+
+        .purpose-card h3 {
+            font-size: 1.3rem;
+            font-weight: 530;
+            margin-bottom: 0.5rem;
+            color: #3a3834;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .purpose-card p {
+            font-size: 0.96rem;
+            color: #4d4a45;
+        }
+
+        /* 适合人群 */
+        .audience-section {
+            margin: 2rem 0 2.2rem;
+            padding: 1rem 0;
+        }
+
+        .audience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem 1rem;
+            margin-top: 0.8rem;
+        }
+
+        .audience-tags span {
+            background: #ede8df;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #3a3732;
+            letter-spacing: 0.01em;
+        }
+
+        /* 引用块 / 提示框 */
+        .inset-box {
+            background: #f3eee6;
+            border-left: 4px solid #b8a78f;
+            padding: 1.3rem 1.6rem;
+            border-radius: 12px;
+            margin: 1.8rem 0;
+            font-size: 0.98rem;
+            color: #3e3b36;
+        }
+
+        .inset-box strong {
+            font-weight: 570;
+            color: #2b2824;
+        }
+
+        /* FAQ 摘要 (简洁) */
+        .faq-mini {
+            margin: 2rem 0 0.8rem;
+        }
+
+        .faq-mini details {
+            border-bottom: 1px solid #e7e1d6;
+            padding: 0.8rem 0;
+        }
+
+        .faq-mini details summary {
+            font-weight: 510;
+            cursor: pointer;
+            color: #3c3a35;
+            padding: 0.2rem 0;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-mini details summary::after {
+            content: "＋";
+            font-size: 1.1rem;
+            color: #8a8275;
+            transition: 0.1s;
+        }
+
+        .faq-mini details[open] summary::after {
+            content: "−";
+        }
+
+        .faq-mini details p {
+            margin: 0.5rem 0 0.2rem;
+            color: #4f4b45;
+            font-size: 0.94rem;
+        }
+
+        /* 自然链接段落 */
+        .link-paragraph {
+            background: #f9f5ef;
+            padding: 1.5rem 1.8rem;
+            border-radius: 20px;
+            margin: 2rem 0 1.2rem;
+        }
+
+        .link-paragraph a {
+            color: #7f4f2a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1.5px;
+            font-weight: 500;
+        }
+
+        .link-paragraph a:hover {
+            color: #a06b3e;
+            background: #f0e7db;
+            text-decoration-thickness: 2px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            .page-wrap {
+                padding: 1.8rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .link-paragraph {
+                padding: 1.2rem;
+            }
+
+            body {
+                padding: 1rem 0.6rem;
+            }
+        }
+
+        /* 辅助 */
+        .label-muted {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #9c9287;
+            margin-bottom: 0.2rem;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <!-- hero -->
+    <header class="hero">
+        <h1>pp体育 · 一站聚合</h1>
+        <div class="sub">快速识别平台用途，聚焦体育内容与赛事动态</div>
+    </header>
+
+    <!-- 用途卡片：信息密度 -->
+    <div class="intro-grid">
+        <div class="purpose-card">
+            <h3>📋 赛事资讯</h3>
+            <p>涵盖主流联赛、杯赛的赛程、比分、数据摘要。面向希望快速检索体育信息的用户，减少信息噪音。</p>
+        </div>
+        <div class="purpose-card">
+            <h3>📺 视频内容索引</h3>
+            <p>提供体育相关短视频、集锦、回放入口导航，方便按赛事或队伍查找内容，提升浏览效率。</p>
+        </div>
+        <div class="purpose-card">
+            <h3>🔍 分类筛选</h3>
+            <p>基于运动类型、联赛、时间轴等多维度筛选，帮助用户从庞杂信息中定位自己关注的板块。</p>
+        </div>
+        <div class="purpose-card">
+            <h3>📌 关注与订阅</h3>
+            <p>支持对特定球队、赛事或主播进行关注，订阅后可在首页获得个性化更新提醒。</p>
+        </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <div class="audience-section">
+        <span class="label-muted">适合谁使用</span>
+        <div class="audience-tags">
+            <span>⚽ 体育爱好者</span>
+            <span>🏀 赛事追随者</span>
+            <span>📱 资讯快速查阅者</span>
+            <span>🎥 视频集锦观众</span>
+            <span>📊 数据关注者</span>
+        </div>
+    </div>
+
+    <!-- 引用块/提示框 更具体地说明如何识别用途 -->
+    <div class="inset-box">
+        <strong>💡 如何理解这个网站？</strong><br>
+        如果你希望在一个页面里集中看到体育新闻、比赛结果、视频入口，而不需要跳转多个平台，那么 <a href="https://cn-index-ppsports.com" style="color:#7f4f2a;text-decoration:underline;font-weight:500;">pp体育</a> 的首页索引结构提供了这种聚合感。页面以导航卡片和分类区块为主，强调快速定位，而非深度长文。
+    </div>
+
+    <!-- 自然链接段落 + 嵌入准确文本 -->
+    <div class="link-paragraph">
+        <p>许多人初次访问时，希望马上判断该网站是否包含自己关注的联赛内容。通常可以在顶部分类或搜索栏输入队伍名称，查看是否有匹配的专题。如果你经常浏览篮球或足球资讯，<a href="https://cn-index-ppsports.com">pp体育</a> 的首页会展示热门赛事卡片，点击即可进入对应页面。整体布局偏向工具型入口，适合内容发现。</p>
+    </div>
+
+    <!-- FAQ 摘要 (两个问题) -->
+    <div class="faq-mini">
+        <span class="label-muted">快速问答</span>
+        <details>
+            <summary>这个网站主要提供什么？</summary>
+            <p>以体育内容聚合为主，包括文字资讯、视频集锦、数据面板等。首页作为导航中心，整合多个入口。</p>
+        </details>
+        <details>
+            <summary>需要注册才能浏览吗？</summary>
+            <p>大部分信息和分类浏览无需登录。部分个性化功能（如关注、订阅）可能需要账户支持，具体以页面提示为准。</p>
+        </details>
+    </div>
+
+    <!-- 页脚/简短说明 -->
+    <div style="margin-top: 2.4rem; border-top: 1px solid #e7e1d6; padding-top: 1.4rem; font-size: 0.85rem; color: #9c9287; display: flex; flex-wrap: wrap; justify-content: space-between;">
+        <span>信息导览页 · 基于公开内容描述</span>
+        <span style="font-family: monospace; letter-spacing: 0.1em;">cb8efbfb1046ac2a</span>
+    </div>
+</div>
+</body>
+</html>
